@@ -7,4 +7,4 @@ apply principal component analysis (pca) to randomly generated matrices with con
 3. navigate to `matrix_pca.ipynb` and run notebook
 
 notebook is expected to output:
-![Pca Window](out/pca_window.png)
+![Pca Window](out/matrix_pca.png)
