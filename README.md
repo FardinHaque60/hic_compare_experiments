@@ -10,5 +10,6 @@ Repo was made and tested with `python 3.12.8` <br>
 * Install dependencies with `pip install -r requirements.txt`
 
 ## See experiments with instructions in folders below:
-* `simple_diff`
-* `pca_window`
+* `simple_diff` - takes simple diff of two hic matrices 
+* `pca_window` - applies pca on two generated matrices with noise and clusters of high contrast differences, takes differences of these matrices
+* `pca_hic` - takes difference of two hic matrices with pca applied to them
