@@ -5,7 +5,8 @@ every experiment is outlined below. the following experiments are applied onto t
 * `simple_diff` - takes simple diff of two hic matrices to expose areas of difference.
 * `pca_hic` - applies pca to hic matrix1 and matrix2. reduces noise on the matrices before comparing them. includes stat to determine which window size best eliminates noise.
 * `autoencoder_hic` - applies autoencoder to hic matrices to remove noise. autoencoder is trained on original matrix and used to denoise the query matrix. 
-* TODO add more
+* `matrix_transformation_hic` 
+* `singular_value_threshold_hic`
 
 ### dlbcl dataset info
 using data with chromatin conformation changes in B-cells of a diffuse large B-cell lymphoma (DLBCL) patient.
@@ -20,30 +21,86 @@ Figure 1.2: raw data of control dlbcl sample from dlbcl with blue bounding boxes
 Figure 1.3: simple diff of patient - control <br>
 Figure 1.4: log2(patient/control) <br>
 
-stats: <br>
-
 * `pca_hic`
 ![pca_hic](dlbcl/pca_hic.png)
-Figure 3 <br>
+Figure 2 <br>
 caption: <br>
 experiment used a 3x3 window size. <br>
-Figure 3.1: PCA applied to on patient <br>
-Figure 3.2: PCA applied to control <br>
-Figure 3.3: Difference of PCA patient - control <br>
-Figure 3.4: log transformation of PCA applied patient/control <br>
+Figure 2.1: PCA applied to on patient <br>
+Figure 2.2: PCA applied to control <br>
+Figure 2.3: Difference of PCA patient - control <br>
+Figure 2.4: log transformation of PCA applied patient/control <br>
 
-stats: <br>
+stats for patient dataset
+- RMSE: 0.0008698776305886675
+- SSIM: 0.9455008878561836
+- Explained Variance: 0.9791310059549767
+<br> <br>
+stats for control dataset
+- RMSE: 0.0010030784322756757
+- SSIM: 0.931176674663269
+- Explained Variance: 0.9786093352737302
+
 
 * `autoencoder_hic`
 ![autoencoder_pca](dlbcl/autoencoder_hic.png)
+Figure 3 <br>
+caption: <br>
+Figure 3.1: autoencoder applied onto patient sample <br>
+Figure 3.2: autoencoder applied onto control sample <br>
+Figure 3.3: autoencoder applied patient - control <br>
+Figure 3.4: log transformation of autoencoder applied patient / control <br>
+
+stats for patient
+- RMSE: 0.003268624836516338
+- SSIM: 0.5603837090570739
+- Explained Variance: 0.7053439802088456
+<br> <br>
+stats for control
+- RMSE: 0.004033890547864682
+- SSIM: 0.4292017638059828
+- Explained Variance: 0.6540683637257909
+
+
+* `matrix_factorization_hic`
+![mf_hic](dlbcl/mf_hic.png)
 Figure 4 <br>
 caption: <br>
-Figure 4.1: autoencoder applied onto patient sample <br>
-Figure 4.2: autoencoder applied onto control sample <br>
-Figure 4.3: autoencoder applied patient - control <br>
-Figure 4.4: log transformation of autoencoder applied patient / control <br>
+Figure 4.1: mf applied onto patient sample <br>
+Figure 4.2: mf applied onto control sample <br>
+Figure 4.3: mf applied patient - control <br>
+Figure 4.4: log transformation of mf applied patient / control <br>
 
-stats: <br>
+stats for patient
+- RMSE: 0.002808144378972066
+- SSIM: 0.8017047363074518
+- Explained Variance: 0.7825176204503851
+<br> <br>
+stats for control
+- RMSE: 0.0036945295982092788
+- SSIM: 0.7096551058333078
+- Explained Variance: 0.7098164730735839
+
+
+* `singular_value_threshold_hic`
+![svt_hic](dlbcl/svt_hic.png)
+Figure 5 <br>
+caption: <br>
+Figure 5.1: svt applied onto patient sample <br>
+Figure 5.2: svt applied onto control sample <br>
+Figure 5.3: svt applied patient - control <br>
+Figure 5.4: log transformation of svt applied patient / control <br>
+
+stats for patient
+- RMSE: 0.002485035109289444
+- SSIM: 0.8781677258370684
+- Explained Variance: 0.8326963633963829
+<br> <br>
+stats for control
+- RMSE: 0.0026973264071887834
+- SSIM: 0.8805868416864833
+- Explained Variance: 0.847643967056996
+
 
 ### noise added to dlbcl data
 in this experiment, noise is added with gaussian blur layers to the dlbcl data. the experiments are conducted to see how well it removes the manually added noise.
@@ -51,7 +108,7 @@ in this experiment, noise is added with gaussian blur layers to the dlbcl data. 
 * original data
 noise added to original data in increments
 ![original syn data](noise/original_data.png)
-Figure 5 <br>
+Figure 6 <br>
 caption: <br>
 - first row is patient data with increasing noise
 - second row is control data with increasing noise 
@@ -60,7 +117,7 @@ stats: <br>
 
 * `pca_hic` 
 ![pca hic](noise/pca_hic.png)
-Figure 6 <br>
+Figure 7 <br>
 caption: <br>
 - first row is pca applied onto patient noise data
 - second row is pca applied onto control noise data
@@ -70,10 +127,38 @@ stats: <br>
 
 * `autoencoder_hic`
 ![autoencoder hic](noise/autoencoder_hic.png)
-Figure 7 <br>
+Figure 8 <br>
 caption: <br>
 - first row is autoencoder applied onto patient noise data
 - second row is autoencoder applied onto control noise data
 - third row is autoencoder of respective pca applied patient - control 
+
+stats: <br>
+
+* `mf_hic`
+![mf hic](noise/mf_hic.png)
+Figure 9 <br>
+caption: <br>
+- first row is autoencoder applied onto patient noise data
+- second row is autoencoder applied onto control noise data
+- third row is autoencoder of respective pca applied patient - control 
+
+stats: <br>
+
+* `svt_hic`
+![sct hic](noise/svt_hic.png)
+Figure 10 <br>
+caption: <br>
+- first row is autoencoder applied onto patient noise data
+- second row is autoencoder applied onto control noise data
+- third row is autoencoder of respective pca applied patient - control 
+
+stats: <br>
+
+* `noise_plot`
+![noise plot](noise/all_hic.png)
+Figure 11 <br>
+caption: <br>
+- plot of increasing noise on x axis and stats on y axis of sim for different experiments.
 
 stats: <br>
