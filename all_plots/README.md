@@ -86,7 +86,7 @@ Figure 7.6: log2 of pca applied simulated / original <br>
 stats: <br>
 
 * `autoencoder_hic`
-![autoencoder hic](syn/autoencoder_hic)
+![autoencoder hic](syn/autoencoder_hic.png)
 Figure 8 <br>
 caption: <br>
 
