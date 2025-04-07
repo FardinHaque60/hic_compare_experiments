@@ -1,5 +1,7 @@
 # HiC Compare Experiments
-Experiments for HiC compare research. Manuscript: https://carlosrojas.xyz/hic_compare_manuscript/
+Experiments for HiC compare research. 
+- Manuscript: https://carlosrojas.xyz/hic_compare_manuscript/
+- CSCSU Submission: (TODO add link to google drive upload of final submission)
 
 ## Set-Up
 Repo was made and tested with `python 3.12.8` <br>
@@ -9,7 +11,12 @@ Repo was made and tested with `python 3.12.8` <br>
 * Activate venv with `source venv/bin/activate`
 * Install dependencies with `pip install -r requirements.txt`
 
-## See experiments with instructions in folders below:
+## See experiments with instructions in the `denoising_experiments` folders below:
+* `pca_hic` - takes difference of two hic matrices with pca applied to them
+* `autoencoder_hic` - autoencoder applies onto hic matrices
+* `mf_hic` - matrix factorization applied onto hic matrices
+* `svt_hic` - singular value threshold applied onto hic matrices
+
+## experiments in the `misc` folder:
 * `simple_diff` - takes simple diff of two hic matrices 
 * `pca_window` - applies pca on two generated matrices with noise and clusters of high contrast differences, takes differences of these matrices
-* `pca_hic` - takes difference of two hic matrices with pca applied to them
