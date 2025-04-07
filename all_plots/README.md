@@ -5,8 +5,8 @@ every experiment is outlined below. the following experiments are applied onto t
 * `simple_diff` - takes simple diff of two hic matrices to expose areas of difference.
 * `pca_hic` - applies pca to hic matrix1 and matrix2. reduces noise on the matrices before comparing them. includes stat to determine which window size best eliminates noise.
 * `autoencoder_hic` - applies autoencoder to hic matrices to remove noise. autoencoder is trained on original matrix and used to denoise the query matrix. 
-* `matrix_transformation_hic` 
-* `singular_value_threshold_hic`
+* `mf_hic` - applied matrix factorization
+* `svt_hic` - applied singular value threshold
 
 ### dlbcl dataset info
 using data with chromatin conformation changes in B-cells of a diffuse large B-cell lymphoma (DLBCL) patient.
@@ -110,58 +110,15 @@ in this experiment, noise is added with gaussian blur layers to the dlbcl data. 
 
 * original data
 noise added to original data in increments
-![original syn data](noise/original_data.png)
+![original syn data](noise/005_noise_hic.png)
 Figure 6 <br>
 caption: <br>
-- first row is patient data with increasing noise
-- second row is control data with increasing noise 
-
-stats: <br>
-
-* `pca_hic` 
-![pca hic](noise/pca_hic.png)
-Figure 7 <br>
-caption: <br>
-- first row is pca applied onto patient noise data
-- second row is pca applied onto control noise data
-- third row is diff of respective pca applied patient - control 
-
-stats: <br>
-
-* `autoencoder_hic`
-![autoencoder hic](noise/autoencoder_hic.png)
-Figure 8 <br>
-caption: <br>
-- first row is autoencoder applied onto patient noise data
-- second row is autoencoder applied onto control noise data
-- third row is autoencoder of respective pca applied patient - control 
-
-stats: <br>
-
-* `mf_hic`
-![mf hic](noise/mf_hic.png)
-Figure 9 <br>
-caption: <br>
-- first row is autoencoder applied onto patient noise data
-- second row is autoencoder applied onto control noise data
-- third row is autoencoder of respective pca applied patient - control 
-
-stats: <br>
-
-* `svt_hic`
-![sct hic](noise/svt_hic.png)
-Figure 10 <br>
-caption: <br>
-- first row is autoencoder applied onto patient noise data
-- second row is autoencoder applied onto control noise data
-- third row is autoencoder of respective pca applied patient - control 
-
-stats: <br>
+- first row is patient data and control data with 0.005 noise
+- second row is simple diff of noised data
+- third row is log transform of noisy patient and control data
 
 * `noise_plot`
-![noise plot](noise/all_hic.png)
+![noise plot](noise/all_noise.png)
 Figure 11 <br>
 caption: <br>
 - plot of increasing noise on x axis and stats on y axis of sim for different experiments.
-
-stats: <br>
