@@ -1,11 +1,11 @@
 # HiC Compare Experiments
 Experiments for HiC compare research. 
 - Manuscript: https://carlosrojas.xyz/hic_compare_manuscript/
-- CSCSU Submission: (TODO add link to google drive upload of final submission)
+- [CSCSU Submission Paper](https://drive.google.com/file/d/1IcG_abP1gChwC_HL3mhh5a0F1J00WkWH/view?usp=sharing)
+    - all plots used in this submission can be found in the `all_plots` directory with descriptions of the experiments and results.
 
 ## Set-Up
 Repo was made and tested with `python 3.12.8` <br>
-*TODO: Looking to dockerize repo in future so it will be able to run regardless of version
 
 * Create venv with `python3 -m venv venv`
 * Activate venv with `source venv/bin/activate`
