@@ -1,7 +1,7 @@
 # HiC Compare Experiments
 Experiments for HiC compare research. 
 - Manuscript: https://carlosrojas.xyz/hic_compare_manuscript/
-- [CSCSU Submission Paper](https://drive.google.com/file/d/1IcG_abP1gChwC_HL3mhh5a0F1J00WkWH/view?usp=sharing)
+- [CSCSU Submission Paper](https://drive.google.com/file/d/1NRTZRvArjVdcAwng6v6FxObW120IYDcl/view?usp=sharing)
     - all plots used in this submission can be found in the `all_plots` directory with descriptions of the experiments and results.
 
 ## Set-Up
